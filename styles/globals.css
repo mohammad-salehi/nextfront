@@ -1,11 +1,3 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
 a {
   color: inherit;
   text-decoration: none;
@@ -13,14 +5,61 @@ a {
 
 * {
   box-sizing: border-box;
+  direction: rtl;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
+
+
+#rightLoginBackground {
+  /* background: url("images/login.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#main #rightLoginBackground {
+  /* background: url("images/login.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#main input[type=checkbox] {
+  background-color: white; /* تغییر رنگ پس زمینه تیک به زرد */
+  border-color: #01153a;
+}
+#main input[type=checkbox]:checked {
+  background-color: #01153a; /* تغییر رنگ پس زمینه تیک به نارنجی زمانی که انتخاب شده باشد */
+}
+#main input[type=text]:focus {
+  border-color: #01153a;
+}
+#main input[type=password]:focus {
+  border-color: #01153a;
+}
+#main .login_form {
+  height: 40px;
+  border-radius: 7px;
+  padding-right: 20px;
+}
+#main input::placeholder {
+  padding-right: 5px;
+}
+#main .login_forgote_password_link {
+  text-decoration: none;
+}
+#main #login_remember_me input {
+  float: right;
+}
+#main #login_remember_me label {
+  margin-right: 20px;
+}
+#main .gray {
+  color: rgb(121, 121, 121);
+}
+@media only screen and (max-width: 576px) {
+  #main #login_form_content {
+    width: 90%;
+    margin-right: 5%;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
+

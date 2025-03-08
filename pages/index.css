@@ -1,0 +1,71 @@
+@font-face {
+    font-family: sans;
+    src: url(/fonts/IRANSansXMedium.ttf);
+}
+
+*{
+    font-family: sans !important;
+ }
+
+#main{
+    background-image: url(/images/login.jpg);
+    background-size: cover;
+    width:100%;
+    min-height:100vh;
+    text-align: center;
+    position: fixed;
+}
+
+.test{
+    background: rgb(12, 50, 4);
+}
+
+#loginBox{
+    text-align: right;
+    max-width: 400px;
+    margin: auto;
+    color: white;
+    padding: 24px;
+    margin-top: 180px;
+    border-radius: 16px;
+    color: rgb(202, 202, 202);
+    box-shadow: rgba(158, 158, 182, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.Glass{
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.18);
+}
+
+.NiceButton{
+    border-style: none;
+    background: rgb(230, 230, 230);
+    border-radius: 6px;
+    transition: 0.2s;
+    padding: 8px 20px 12px 20px;
+    font-size: 16px;
+    color: rgb(80, 80, 80);
+    width: 100%;
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+}
+
+.NiceButton:hover{
+    background: rgb(220, 220, 220);
+}
+
+.loginInput{
+    border-style: none;
+    color: white;
+}
+
+.loginInput{
+    border-style: none;
+    background: rgba(255,255,255,0.25) !important;
+    color: white !important;
+}
+
+.loginInput:focus{
+    border-style: none;
+    background: rgba(255,255,255,0.25) !important;
+    color: white !important;
+}

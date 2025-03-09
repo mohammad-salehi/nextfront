@@ -7,7 +7,7 @@ import './index.css'
 function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
-  const showHeader = router.pathname !== '/';
+  const showHeader = router.pathname !== '/' && router.pathname !== '/recovery';
   return (
     <>
       {showHeader && <Header />}

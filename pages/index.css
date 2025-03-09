@@ -5,31 +5,14 @@
 
 *{
     font-family: sans !important;
- }
-
-#main{
-    background-image: url(/images/login.jpg);
-    background-size: cover;
-    width:100%;
-    min-height:100vh;
-    text-align: center;
-    position: fixed;
 }
 
-.test{
-    background: rgb(12, 50, 4);
-}
-
-#loginBox{
-    text-align: right;
-    max-width: 400px;
-    margin: auto;
-    color: white;
-    padding: 24px;
-    margin-top: 180px;
-    border-radius: 16px;
-    color: rgb(202, 202, 202);
-    box-shadow: rgba(158, 158, 182, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+@media only screen and (max-width:500px) {
+    #loginBox{
+        width: 90%;
+        margin: 120px 5%;
+        max-width: none;
+    }
 }
 
 .Glass{
@@ -39,7 +22,7 @@
 
 .NiceButton{
     border-style: none;
-    background: rgb(230, 230, 230);
+    background: rgb(189, 189, 189);
     border-radius: 6px;
     transition: 0.2s;
     padding: 8px 20px 12px 20px;
@@ -63,9 +46,38 @@
     background: rgba(255,255,255,0.25) !important;
     color: white !important;
 }
-
 .loginInput:focus{
     border-style: none;
     background: rgba(255,255,255,0.25) !important;
     color: white !important;
+}
+.loginInput:active{
+    border-style: none;
+    background: rgba(255,255,255,0.25) !important;
+    color: white !important;
+}
+
+#main{
+    background-image: url(/images/login.jpg);
+    background-size: cover;
+    width:100%;
+    min-height:100vh;
+    text-align: center;
+    position: fixed;
+}
+
+#main #loginBox{
+    text-align: right;
+    max-width: 400px;
+    margin: auto;
+    color: white;
+    padding: 24px;
+    margin-top: 180px;
+    border-radius: 16px;
+    color: rgb(202, 202, 202);
+    box-shadow: rgba(158, 158, 182, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.MuiMenu-paper{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

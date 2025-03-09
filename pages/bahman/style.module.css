@@ -1,0 +1,128 @@
+.ModakheleCard{
+    box-shadow: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(230,230,230);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .9) 0%, rgba(250, 250, 250, .7) 100%);
+    padding: 8px;
+    text-align:right
+}
+
+.ModakheleCardWithoutPadding{
+    box-shadow: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(230,230,230);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .9) 0%, rgba(250, 250, 250, .7) 100%);
+    padding: 0px;
+    text-align:right;
+}
+
+.ModakheleCardWithoutBorder{
+    box-shadow: none;
+    border-style: none;
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .9) 0%, rgba(250, 250, 250, .7) 100%);
+    padding: 8px;
+    text-align:right;
+}
+
+#Modakhele{
+    margin-top: 45px;
+}
+@media only screen and (max-width:992px) {
+    #Modakhele{
+        margin-top: -40px;
+    }
+
+    #Modakhele .card-entity-search {
+        padding: 16px 0px !important;
+    }
+
+    #Modakhele .card-entity-search form{
+        padding: 16px 16px !important;
+    }
+    
+    .topSelectExchangeBoxElement{
+        margin: 0px 16px;
+
+    }
+    .p-column-header-content{
+        font-size: 13px;
+    }
+    .columnheader{
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    .p-datatable-tbody{
+        font-size: 13px;
+    }
+    .p-datatable-tbody span{
+        font-size: 13px !important;
+        padding: 2px 4px !important;
+    }
+}
+@media only screen and (max-width:767px) {
+    #Modakhele{
+        margin-top: -40px;
+    }
+
+    #Modakhele .card-entity-search {
+        padding: 16px 0px !important;
+    }
+    .topSelectExchangeBoxElement{
+        margin: 0px 16px;
+
+    }
+    .p-column-header-content{
+        font-size: 12px;
+    }
+    .columnheader{
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    .p-datatable-tbody{
+        font-size: 12px;
+    }
+    .p-datatable-tbody span{
+        font-size: 12px !important;
+        padding: 2px 4px !important;
+    }
+}
+
+.modakheleButton{
+    border-style: none;
+    background: rgb(230, 230, 230);
+    border-radius: 6px;
+    transition: 0.2s;
+    padding: 8px 20px;
+    font-size: 16px;
+    color: gray;
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+}
+
+.modakheleButton:hover{
+    background: rgb(220, 220, 220);
+}
+
+.css-137m4ck{
+    border-radius: 8px !important;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px !important;
+}
+
+.css-1n6ujgj{
+    direction: ltr !important;
+}
+
+.css-1s9k2t7{
+    border-radius: 4px !important;
+    overflow: hidden !important;
+}

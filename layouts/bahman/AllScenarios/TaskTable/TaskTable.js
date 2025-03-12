@@ -15,6 +15,7 @@ import { Input } from 'reactstrap'
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 import Select, { components } from 'react-select'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const TaskTabel = ({ History, SetHistory }) => {
 
@@ -721,7 +722,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                             }}
                                         >
                                             صرافی {Filters.ExchangeName}
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('ExchangeName', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('ExchangeName', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -741,7 +742,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             کمترین قیمت {Filters.start_price.toLocaleString()} ریال
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('start_price', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('start_price', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -761,7 +762,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             بیشترین قیمت {Filters.end_price.toLocaleString()} ریال
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('end_price', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('end_price', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -788,7 +789,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                             {Filters.scenario_name === 'REDUCE' ? 'کاهش قیمت' : null}
                                             {Filters.scenario_name === 'KEEP' ? 'جلوگیری از رشد قیمت' : null}
 
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('scenario_name', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('scenario_name', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -811,7 +812,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                             {Filters.statusName === 'Done' ? 'اتمام' : null}
                                             {Filters.statusName === 'Active' ? 'فعال' : null}
                                             {Filters.statusName === 'Failed' ? 'ناموفق' : null}
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('statusName', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('statusName', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -831,7 +832,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             بیشترین حجم {Filters.end_total_amount} usdt
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('end_total_amount', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('end_total_amount', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -851,7 +852,7 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             کمترین حجم {Filters.start_total_amount} usdt
-                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('start_total_amount', false) }}>
+                                            <svg style={{marginRight:'4px'}} fill="#000000" width="18px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('start_total_amount', false) }}>
                                                 <g>
                                                     <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
                                                 </g>
@@ -873,8 +874,8 @@ const TaskTabel = ({ History, SetHistory }) => {
                             <div style={{ borderTopStyle: 'solid', borderColor: 'rgb(220,220,220)', borderWidth: '1px' }}>
                                 {
                                     TableLoading ?
-                                        <div className='mt-5'>
-                                            loading
+                                        <div className='mt-5' style={{textAlign:'center'}}>
+                                            <CircularProgress size='3rem'/>
                                         </div>
                                         :
                                         <DataTable

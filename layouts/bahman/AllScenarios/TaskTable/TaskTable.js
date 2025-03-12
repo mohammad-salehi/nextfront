@@ -254,9 +254,11 @@ const TaskTabel = ({ History, SetHistory }) => {
         )
     }
     const onPageChange = (event) => {
-        setTableLoading(true)
-        setFirst(event.first)
-        setRows(event.rows)
+        if (first !== event.first) {
+            setTableLoading(true)
+            setFirst(event.first)
+            setRows(event.rows)
+        }
     }
     const scenario = (row) => {
         if (row.scenario_name === 'KEEP') {
@@ -564,40 +566,36 @@ const TaskTabel = ({ History, SetHistory }) => {
     }
     useEffect(() => {
         if (IsSort) {
-            if (SortParameter === 0) {
-                if (Increase) {
-                    IncreaseSortByProperty(History, 'total_amount')
-                } else {
-                    DecreaseSortByProperty(History, 'total_amount')
-                }
-            } else if (SortParameter === 1) {
-                if (Increase) {
-                    IncreaseSortByProperty(History, 'price')
-                } else {
-                    DecreaseSortByProperty(History, 'price')
-                }
-            } else if (SortParameter === 2) {
-                if (Increase) {
-                    IncreaseSortByProperty(History, 'timestamp')
-                } else {
-                    DecreaseSortByProperty(History, 'timestamp')
-                }
-            } else if (SortParameter === 3) {
-                if (Increase) {
-                    IncreaseSortByProperty(History, 'status')
-                } else {
-                    DecreaseSortByProperty(History, 'status')
+            if (History !== undefined) {
+                if (SortParameter === 0) {
+                    if (Increase) {
+                        IncreaseSortByProperty(History, 'total_amount')
+                    } else {
+                        DecreaseSortByProperty(History, 'total_amount')
+                    }
+                } else if (SortParameter === 1) {
+                    if (Increase) {
+                        IncreaseSortByProperty(History, 'price')
+                    } else {
+                        DecreaseSortByProperty(History, 'price')
+                    }
+                } else if (SortParameter === 2) {
+                    if (Increase) {
+                        IncreaseSortByProperty(History, 'timestamp')
+                    } else {
+                        DecreaseSortByProperty(History, 'timestamp')
+                    }
+                } else if (SortParameter === 3) {
+                    if (Increase) {
+                        IncreaseSortByProperty(History, 'status')
+                    } else {
+                        DecreaseSortByProperty(History, 'status')
+                    }
                 }
             }
         }
     }, [IsSort, SortParameter, Increase, History])
-    const sort = (parameter) => {
-        if (IsSort) {
-            SetIncrease(!Increase)
-        }
-        SetIsSort(true)
-        SetSortParameter(parameter)
-    }
+
     //filters
     const [start_price, Setstart_price] = useState(false)
     const [end_price, Setend_price] = useState(false)
@@ -642,7 +640,6 @@ const TaskTabel = ({ History, SetHistory }) => {
         }));
     };
 
-    //------------------------------------------------------------------------------------------------
     useEffect(() => {
         if (Object.values(Filters).every(value => value === false)) {
             GetRequest(`${serverAddress}/intervention/scenarios/?limit=5&offset=${first}`)
@@ -704,9 +701,10 @@ const TaskTabel = ({ History, SetHistory }) => {
                 <Row className='p-3 pb-2'>
                     <Col>
                         <h6>
-                            فیلترها
-                            <ion-icon name="filter-circle-outline" style={{ fontSize: '24px', cursor: 'pointer', marginBottom: "-6px", marginRight: '4px' }} onClick={() => { setIsShowFilter(true) }}></ion-icon>
-
+                            <span style={{ cursor: 'pointer' }} onClick={() => { setIsShowFilter(true) }}>
+                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" style={{ marginTop: '-4px' }} xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 10a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1ZM7 14a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1ZM9 18a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1ZM3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z" fill="#000000" /></svg>
+                                فیلترها
+                            </span>
                         </h6>
                     </Col>
                 </Row>
@@ -723,7 +721,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                             }}
                                         >
                                             صرافی {Filters.ExchangeName}
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('ExchangeName', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('ExchangeName', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -739,7 +741,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             کمترین قیمت {Filters.start_price.toLocaleString()} ریال
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('start_price', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('start_price', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -755,7 +761,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             بیشترین قیمت {Filters.end_price.toLocaleString()} ریال
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('end_price', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('end_price', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -778,7 +788,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                             {Filters.scenario_name === 'REDUCE' ? 'کاهش قیمت' : null}
                                             {Filters.scenario_name === 'KEEP' ? 'جلوگیری از رشد قیمت' : null}
 
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('scenario_name', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('scenario_name', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -797,7 +811,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                             {Filters.statusName === 'Done' ? 'اتمام' : null}
                                             {Filters.statusName === 'Active' ? 'فعال' : null}
                                             {Filters.statusName === 'Failed' ? 'ناموفق' : null}
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('statusName', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('statusName', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -813,7 +831,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             بیشترین حجم {Filters.end_total_amount} usdt
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('end_total_amount', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('end_total_amount', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -829,7 +851,11 @@ const TaskTabel = ({ History, SetHistory }) => {
                                         >
                                             {' '}
                                             کمترین حجم {Filters.start_total_amount} usdt
-                                            <ion-icon name="close-circle-outline" style={{ fontSize: '18px', marginBottom: '-5px', marginRight: '4px', cursor: 'pointer' }} onClick={() => { handleFilterChange('start_total_amount', false) }}></ion-icon>
+                                            <svg fill="#000000" width="20px" height="20px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" onClick={() => { handleFilterChange('start_total_amount', false) }}>
+                                                <g>
+                                                    <path d="M10,1a9,9,0,1,0,9,9A9,9,0,0,0,10,1Zm0,16.4A7.4,7.4,0,1,1,17.4,10,7.41,7.41,0,0,1,10,17.4ZM13.29,5.29,10,8.59,6.71,5.29,5.29,6.71,8.59,10l-3.3,3.29,1.42,1.42L10,11.41l3.29,3.3,1.42-1.42L11.41,10l3.3-3.29Z" />
+                                                </g>
+                                            </svg>
                                         </span>
                                         :
                                         null
@@ -841,57 +867,59 @@ const TaskTabel = ({ History, SetHistory }) => {
                         null
                 }
                 {
-                    History.length > 0 ?
-                        <div style={{ borderTopStyle: 'solid', borderColor: 'rgb(220,220,220)', borderWidth: '1px' }}>
-                            {
-                                TableLoading ?
-                                    <div className='mt-5'>
-                                        loading
-                                    </div>
-                                    :
-                                    <DataTable
-                                        value={ShowData}
-                                        tableStyle={{ minWidth: '50rem' }}
-                                        expandedRows={ShowData.filter(row => expandedRowIds.includes(row.id))}
-                                        onRowToggle={onRowToggle}
-                                        rowExpansionTemplate={rowExpansionTemplate}
-                                        className='custom-data-table no-row-background TaskTabelTd'
-                                    >
-                                        <Column expander style={{ width: '3em', padding: '0px' }} />
-                                        <Column body={exchange_name} bodyStyle={{ textAlign: 'right' }} header=" صرافی"></Column>
-                                        {/* <Column body={amount} bodyStyle={{ textAlign: 'right' }} header={'مقدار'}></Column> */}
-                                        <Column body={type_transaction} bodyStyle={{ textAlign: 'right' }} header=" خرید / فروش "></Column>
-                                        <Column body={timeTransaction} bodyStyle={{ textAlign: 'right' }} header={'زمان'}></Column>
-                                        <Column body={scenario} bodyStyle={{ textAlign: 'right' }} header=" سناریو"></Column>
-                                        <Column body={status} bodyStyle={{ textAlign: 'right' }} header={'وضعیت'}></Column>
-                                        <Column body={cancel} bodyStyle={{ textAlign: 'right' }} header="لغو"></Column>
-                                        <Column body={downloadScenario} bodyStyle={{ textAlign: 'right' }} header="دریافت"></Column>
-                                    </DataTable>
-                            }
+                    History !== undefined ?
+
+                        History.length > 0 ?
+                            <div style={{ borderTopStyle: 'solid', borderColor: 'rgb(220,220,220)', borderWidth: '1px' }}>
+                                {
+                                    TableLoading ?
+                                        <div className='mt-5'>
+                                            loading
+                                        </div>
+                                        :
+                                        <DataTable
+                                            value={ShowData}
+                                            tableStyle={{ minWidth: '50rem' }}
+                                            expandedRows={ShowData.filter(row => expandedRowIds.includes(row.id))}
+                                            onRowToggle={onRowToggle}
+                                            rowExpansionTemplate={rowExpansionTemplate}
+                                            className='custom-data-table no-row-background TaskTabelTd'
+                                        >
+                                            <Column expander style={{ width: '3em', padding: '0px' }} />
+                                            <Column body={exchange_name} bodyStyle={{ textAlign: 'right' }} header=" صرافی"></Column>
+                                            <Column body={type_transaction} bodyStyle={{ textAlign: 'right' }} header=" خرید / فروش "></Column>
+                                            <Column body={timeTransaction} bodyStyle={{ textAlign: 'right' }} header={'زمان'}></Column>
+                                            <Column body={scenario} bodyStyle={{ textAlign: 'right' }} header=" سناریو"></Column>
+                                            <Column body={status} bodyStyle={{ textAlign: 'right' }} header={'وضعیت'}></Column>
+                                            <Column body={cancel} bodyStyle={{ textAlign: 'right' }} header="لغو"></Column>
+                                            <Column body={downloadScenario} bodyStyle={{ textAlign: 'right' }} header="دریافت"></Column>
+                                        </DataTable>
+                                }
 
 
-                            <Paginator
-                                className='paginator-table no-row-background'
-                                first={first}
-                                rows={5}
-                                totalRecords={ScenarioNumber}
-                                rowsPerPageOptions={5}
-                                onPageChange={onPageChange}
-                                template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                                // currentPageReportTemplate='نمایش {first} تا {last} از {totalRecords} سناریو '
-                                currentPageReportTemplate='نمایش {first} تا {last} از {totalRecords} سناریو '
-                            />
-                        </div>
-                        :
-                        FirstLoad ?
-
-                            <div>
-                                no data
+                                <Paginator
+                                    className='paginator-table no-row-background'
+                                    first={first}
+                                    rows={5}
+                                    totalRecords={ScenarioNumber}
+                                    rowsPerPageOptions={5}
+                                    onPageChange={onPageChange}
+                                    template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
+                                    currentPageReportTemplate='نمایش {first} تا {last} از {totalRecords} سناریو '
+                                />
                             </div>
                             :
-                            <div>
-                                loading
-                            </div>
+                            FirstLoad ?
+
+                                <div>
+                                    no data
+                                </div>
+                                :
+                                <div>
+                                    loading
+                                </div>
+                        :
+                        null
                 }
 
             </Card>

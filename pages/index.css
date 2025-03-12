@@ -31,7 +31,7 @@
     transition: 0.2s;
     padding: 8px 20px 12px 20px;
     font-size: 16px;
-    color: rgb(80, 80, 80);
+    color: rgb(90, 90, 90);
     width: 100%;
     box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 }
@@ -137,7 +137,7 @@
 
 .paginator-table {
     background: none !important;
-    color: rgb(80, 80, 80);
+    color: rgb(90, 90, 90);
 }
 
 .paginator-table .p-paginator {
@@ -147,7 +147,7 @@
 
 .paginator-table .p-paginator-page {
     background: none !important;
-    color: rgb(80, 80, 80);
+    color: rgb(90, 90, 90);
 }
 
 .paginator-table .p-paginator-current {
@@ -168,20 +168,29 @@
 
 .paginator-table .p-highlight {
     background: rgb(212, 212, 212) !important;
-    border-radius: 80px;
+    border-radius: 50%;
 }
+.paginator-table button:not(.p-highlight):hover{
+    background: rgb(240, 240, 240) !important;
+    border-radius: 50%;
 
+}
 .paginator-table{
     padding: 12px;
     text-align: right !important;
     float: right;
 }
+
 .paginator-table button{
     padding: 0px;
     width: 40px;
     height: 40px;
     font-size: 16px;
-    color: rgb(80, 80, 80);
+    color: rgb(90, 90, 90);
+    transition: 0.1s;
+}
+.paginator-table button.p-disabled{
+    color: rgb(160, 160, 160);
 }
 .p-paginator-first{
     transform: rotate(180deg);
@@ -195,6 +204,8 @@
 .p-paginator-last{
     transform: rotate(180deg);
 }
+
+
 /* card */
 
 .card {

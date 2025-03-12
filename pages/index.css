@@ -3,24 +3,28 @@
     src: url(/fonts/IRANSansXMedium.ttf);
 }
 
-*{
+* {
     font-family: sans !important;
 }
 
 @media only screen and (max-width:500px) {
-    #loginBox{
+    #loginBox {
         width: 90%;
         margin: 120px 5%;
         max-width: none;
     }
 }
 
-.Glass{
+.Glass {
     backdrop-filter: blur(8px);
-    background: rgba(255,255,255,0.18);
+    background: rgba(255, 255, 255, 0.18);
 }
 
-.NiceButton{
+.pantaBackground {
+    background: url(/public/images/background.jpg);
+}
+
+.NiceButton {
     border-style: none;
     background: rgb(189, 189, 189);
     border-radius: 6px;
@@ -32,41 +36,43 @@
     box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
 }
 
-.NiceButton:hover{
+.NiceButton:hover {
     background: rgb(220, 220, 220);
 }
 
-.loginInput{
+.loginInput {
     border-style: none;
     color: white;
 }
 
-.loginInput{
+.loginInput {
     border-style: none;
-    background: rgba(255,255,255,0.25) !important;
-    color: white !important;
-}
-.loginInput:focus{
-    border-style: none;
-    background: rgba(255,255,255,0.25) !important;
-    color: white !important;
-}
-.loginInput:active{
-    border-style: none;
-    background: rgba(255,255,255,0.25) !important;
+    background: rgba(255, 255, 255, 0.25) !important;
     color: white !important;
 }
 
-#main{
+.loginInput:focus {
+    border-style: none;
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+}
+
+.loginInput:active {
+    border-style: none;
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+}
+
+#main {
     background-image: url(/images/login.jpg);
     background-size: cover;
-    width:100%;
-    min-height:100vh;
+    width: 100%;
+    min-height: 100vh;
     text-align: center;
     position: fixed;
 }
 
-#main #loginBox{
+#main #loginBox {
     text-align: right;
     max-width: 400px;
     margin: auto;
@@ -78,7 +84,133 @@
     box-shadow: rgba(158, 158, 182, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.MuiMenu-paper{
+.MuiMenu-paper {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+/* table styles */
+
+.custom-data-table {
+    color: rgb(60, 60, 60);
+}
+
+.custom-data-table .p-row-toggler {
+    padding: 12px;
+    margin: 8px;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
+.custom-data-table .p-row-toggler:hover {
+    background: rgb(240, 240, 240);
+}
+
+.custom-data-table .p-datatable-tbody>tr {
+    background: none !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: rgb(235, 235, 235);
+}
+
+.custom-data-table .p-datatable-thead {
+    background: none !important;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: rgb(235, 235, 235);
+}
+
+.custom-data-table .p-datatable-tbody>tr>td {
+    background: none !important;
+    padding: 16px 0px;
+
+}
+
+.custom-data-table .p-datatable-tbody>tr:hover {
+    background: none !important;
+}
+
+.custom-data-table .p-datatable-thead>tr>th {
+    background: none;
+    padding: 12px 0px;
+
+}
+
+.paginator-table {
+    background: none !important;
+    color: rgb(80, 80, 80);
+}
+
+.paginator-table .p-paginator {
+    background: none !important;
+    
+}
+
+.paginator-table .p-paginator-page {
+    background: none !important;
+    color: rgb(80, 80, 80);
+}
+
+.paginator-table .p-paginator-current {
+    background: none !important;
+}
+
+.paginator-table .p-paginator-prev,
+.paginator-table .p-paginator-next,
+.paginator-table .p-paginator-first,
+.paginator-table .p-paginator-last {
+    background: none !important;
+}
+
+.paginator-table .p-paginator {
+    border: none;
+    box-shadow: none;
+}
+
+.paginator-table .p-highlight {
+    background: rgb(212, 212, 212) !important;
+    border-radius: 80px;
+}
+
+.paginator-table{
+    padding: 12px;
+    text-align: right !important;
+    float: right;
+}
+.paginator-table button{
+    padding: 0px;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    color: rgb(80, 80, 80);
+}
+.p-paginator-first{
+    transform: rotate(180deg);
+}
+.p-paginator-prev{
+    transform: rotate(180deg);
+}
+.p-paginator-next{
+    transform: rotate(180deg);
+}
+.p-paginator-last{
+    transform: rotate(180deg);
+}
+/* card */
+
+.card {
+    box-shadow: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(230, 230, 230);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .9) 0%, rgba(250, 250, 250, .7) 100%);
+    padding: 0px;
+    text-align: right
+}
+
+.noBackgroundCard {
+    background: none;
+    border-style: none;
+}

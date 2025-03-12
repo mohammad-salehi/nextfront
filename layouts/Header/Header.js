@@ -172,7 +172,7 @@ const Header = () => {
               aria-haspopup="true"
               onClick={handleProfileBoxClick}
             >
-              <PersonIcon style={{ fontSize: '32px', marginLeft: '16px' }} />
+              <PersonIcon style={{ fontSize: '32px', marginLeft: '-16px' }} />
             </StyledButton>
             <Menu
               id="category-menu2"
@@ -181,7 +181,7 @@ const Header = () => {
               onClose={handleProfileBoxClose}
             >
               <div style={{display:'inline-block'}}>
-                <AccountCircleIcon style={{fontSize:'60px',color: 'rgb(80,80,80)', marginTop:'-40px', marginBottom:'-16px'}}  className="pe-3"/>
+                <AccountCircleIcon style={{fontSize:'60px',color: 'rgb(80,80,80)', marginTop:'-40px', marginBottom:'-16px'}} />
               </div>
               <div style={{display:'inline-block'}}>
                 <p style={{ marginBottom: '-2px' }} className="pe-3 ps-5">
@@ -209,26 +209,6 @@ const Header = () => {
               </MenuItem>
             </Menu>
 
-            <StyledButton
-              style={{ background: 'none' }}
-              aria-controls="category-menu"
-              aria-haspopup="true"
-              onClick={handleCategoryClick}
-            >
-              <MenuIcon style={{ fontSize: '32px' }} />
-            </StyledButton>
-            <Menu
-              id="category-menu"
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              {gameCategories.map((category) => (
-                <MenuItem key={category.title} onClick={handleClose}>
-                  {category.icon} {category.title}
-                </MenuItem>
-              ))}
-            </Menu>
           </NavSection>
         )}
       </StyledToolbar>

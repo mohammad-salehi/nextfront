@@ -93,7 +93,7 @@ export default function Home() {
     <div id="main">
       <div id="loginBox" className="Glass">
         <h4 style={{ fontWeight: 'bold' }}>
-          به پنتا خوش‌ آمدید!
+          به سامانه بهمن خوش‌ آمدید!
         </h4>
         <form>
           <Label className="mt-3">نام کاربری</Label>

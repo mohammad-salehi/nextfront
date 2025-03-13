@@ -125,10 +125,10 @@ const Header = () => {
       <StyledToolbar>
         <LogoSection>
 
-          <img src="/images/logo.png" style={{ width: '40px' }} />
+          <img src="/images/bahman_logo.png" style={{ width: '60px' }} />
 
           <Typography variant="h6" component="div" sx={{ display: { xs: "none", sm: "block" } }}>
-            پنتا
+            بهمن
           </Typography>
         </LogoSection>
 

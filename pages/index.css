@@ -95,7 +95,7 @@
 }
 
 .custom-data-table .p-row-toggler {
-    padding: 12px;
+    padding: 10px;
     margin: 8px;
     border-radius: 50%;
     transition: 0.1s;
@@ -121,7 +121,7 @@
 
 .custom-data-table .p-datatable-tbody>tr>td {
     background: none !important;
-    padding: 16px 0px;
+    padding: 12px 0px;
 
 }
 
@@ -131,7 +131,7 @@
 
 .custom-data-table .p-datatable-thead>tr>th {
     background: none;
-    padding: 12px 0px;
+    padding: 10px 0px;
 
 }
 
